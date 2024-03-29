@@ -1,0 +1,159 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4A919E;
+    padding: 20px;
+    color: #fff;
+    height: 70px;
+       
+}
+
+.logo img {
+    width: 140px;
+    height: 90px;
+}
+
+
+.logo h1 {
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.user-actions a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .user-actions {
+        margin-top: 20px;
+    }
+}
+#AboutUs{
+    
+    margin-bottom: 20px;
+    background-image: url(src/background.jpg);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #212E53;
+    height: 100%;
+    font-size: large;
+    
+}
+.shop-name {
+    font-weight: bold;
+}
+.container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#Books{
+    display:flex;
+    
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
+    gap: 3%; /* gap between grid items */
+    margin: 50px;
+}
+
+.grid-item {
+    background-color: #e5e7e6;
+    padding: 20px;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    height: 700px;
+    border-radius: 1%;
+}
+
+#image{
+    width:250px;
+    height :300px;
+    display: center;
+    transition-duration: 0.2s; /* Adjust the duration as needed */
+    transition-timing-function: ease-in-out; 
+    border-radius: 5%;
+}
+#image:hover{
+    width:300px;
+    height :350px;
+}
+
+.title{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+     }
+.description{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.price{
+    margin-top:auto ;
+    margin-right: 20px;
+    font-size:larger;
+   
+    
+}
+.button{
+    margin-top: auto;
+    font-size: larger;
+    background-color:#4A919E ;
+}
+.rating{
+    margin-top: -10px;
+}
+.star {
+    color: gray;
+    cursor: pointer;
+}
+
+.stars{
+    color: gold;
+    cursor:pointer;
+}
+
+.star:hover,
+.star.active , .rated{
+    color: gold;
+}
