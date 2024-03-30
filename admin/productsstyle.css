@@ -1,8 +1,8 @@
 /* Global Styles */
 body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Updated font */
-    background-image: linear-gradient(rgba(190,211,195,0.8),rgba(190,211,195,0.8)), url(../admin/Uploadimage/bookBacground.jpg);
-    color: #212E53; /* Dark blue */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-image: linear-gradient(rgba(235,172,162,0.8),rgba(235,172,162,0.8)), url(../admin/Uploadimage/bookBacground.jpg);
+    color: #212E53;
     margin: 0;
     padding: 0;
 }
@@ -11,16 +11,16 @@ body {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #EBACA2; /* Light coral */
+    background-color: #EBACA2;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Center the content */
+    text-align: center;
 }
 
 .row {
     display: flex;
     justify-content: center;
-    background-color: #ffffff; /* White */
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -33,7 +33,7 @@ body {
 
 /* Form Styles */
 .form-label {
-    color: #4A919E; /* Blue-green */
+    color: #4A919E;
     font-weight: bold;
 }
 
@@ -51,13 +51,13 @@ input[type="text"], input[type="file"], button[type="submit"] {
 
 input[type="text"]:focus, input[type="file"]:focus {
     outline: none;
-    border-color: #CE6A6B; /* Reddish pink */
+    border-color: #CE6A6B;
 }
 
 button[type="submit"], .file-custom-button {
     width: 100%;
-    background-color: #4A919E; /* Blue-green */
-    color: #ffffff; /* White */
+    background-color: #4A919E;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     padding: 10px;
@@ -65,7 +65,7 @@ button[type="submit"], .file-custom-button {
 }
 
 button[type="submit"]:hover, .file-custom-button:hover {
-    background-color: #212E53; /* Dark blue */
+    background-color: #212E53;
 }
 
 /* Table Styles */
@@ -73,22 +73,22 @@ button[type="submit"]:hover, .file-custom-button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow-x: auto; /* Adds a horizontal scroll on smaller screens */
+    overflow-x: auto;
     padding: 20px;
 }
 
 table {
     border-collapse: collapse;
-    width: 90%; /* Adjust based on preference */
-    margin: 20px auto; /* Centers the table and adds spacing */
-    background-color: #fff; /* Table background */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+    width: 90%;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
     text-align: left;
-    padding: 12px; /* Adjust the padding as needed */
-    border-bottom: 1px solid #BED3C3; /* Soft green */
+    padding: 12px;
+    border-bottom: 1px solid #BED3C3;
 }
 
 th {
@@ -107,11 +107,10 @@ tr:hover {
 
 /* Image Styles */
 td img {
-    width: 100px; /* Adjust based on your needs */
+    width: 100px;
     height: auto;
-    border-radius: 5px; /* Optional: Adds rounded corners to images */
+    border-radius: 5px;
 }
-
 
 .deletebtn {
     background-color: #f44336; 
@@ -126,6 +125,8 @@ td img {
 .deletebtn:hover {
     background-color: #da190b; 
 }
+
+/* Header Styles */
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -157,24 +158,9 @@ td img {
     color: #fff;
 }
 
-.main-header .user-actions a {
+.admin-actions a {
     text-decoration: none;
     color: #fff;
     margin-left: 20px;
-}
-
-@media screen and (max-width: 600px) {
-    .main-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .main-header .logo {
-        margin-bottom: 20px;
-    }
-
-    .main-header .user-actions {
-        margin-top: 20px;
-    }
 }
 

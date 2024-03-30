@@ -164,3 +164,9 @@ footer {
 .star.active , .rated{
     color: gold;
 }
+.book img {
+    width: 150px; /* Set width to 100% to maintain aspect ratio */
+    height: 250px; /* Set a fixed height for uniformity */
+    object-fit: cover; /* Ensure the image covers the entire space */
+    border-radius: 5px;
+}
