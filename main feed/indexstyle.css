@@ -151,3 +151,16 @@ footer {
         margin-top: 20px;
     }
 }
+.rating{
+    margin-top: -10px;
+}
+.star {
+    cursor: pointer;
+    color: gray;
+}
+
+
+.star:hover,
+.star.active , .rated{
+    color: gold;
+}
