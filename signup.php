@@ -14,7 +14,7 @@
         <div id="form-inner-container">
         <div id="sign-up-container">
 
-        <img src="logo.png" alt="Company Logo" class="logo-img">
+        <img src="src/logo.png" alt="Company Logo" class="logo-img">
         <div class="signup-heading">Sign Up</div>
             <form method="POST"  action ="login.php">
 

@@ -82,12 +82,4 @@ body {
         color: #CE6A6B;
     }
 
-    .bg-img {
-        background-image: url('background.png'); 
-        min-height: 320px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-      }
-    
+   
