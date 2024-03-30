@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Form</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contactstyle.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="images/logo.png" alt="Company Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="contact.php">Contact</a></li>
-                <li><a href="#AboutUs">About Us</a></li>
-                <li><a href="#Books">Books</a></li>
-                <li><a href="cart.php">Cart</a></li>
-                <li><a href="login.php">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+<header class="main-header">
+    <div class="logo">
+        <img src="images/logo.png" alt="Company Logo">
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="contact.php">Contact</a></li>
+            <li><a href="#AboutUs">About Us</a></li>
+            <li><a href="#Books">Books</a></li>
+        </ul>
+    </nav>
+    <div class="user-actions">
+        <a href="cart.php">Cart</a>
+        <a href="login.php">Login</a>
+    </div>
+</header>
     <div class="container smaller-container">
         <form method="POST" action="process_form.php">
             <div class="logo-container">

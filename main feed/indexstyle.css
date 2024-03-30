@@ -2,44 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    
     background-image: linear-gradient(rgba(235,172,162,0.8),rgba(235,172,162,0.8)), url(../admin/Uploadimage/bookBacground.jpg);
-}
-
-header {
-    background-color: #CE6A6B;
-    color: white;
-    padding: 20px;
-}
-
-header h1 {
-    margin: 0;
-}
-
-nav ul {
-    display: flex;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin-right: 20px;
-}
-
-nav ul li:last-child {
-    margin-right: 0; /* Remove margin from the last list item */
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-}
-
-.logo {
-    margin-top: 0%;
-    width: 200px;
-    margin-left: auto; /* Push the logo to the extreme right */
 }
 
 .content {
@@ -126,6 +89,7 @@ button:hover {
     margin: 0 auto;
     padding: 20px;
 }
+
 .bookimg{
     width: 90px;
 }
@@ -135,4 +99,55 @@ footer {
     background-color: #4A919E;
     color: white;
     padding: 20px;
+}
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #CE6A6B;
+    padding: 20px;
+    color: #fff;
+    height: 70px;
+}
+
+.main-header .logo img {
+    width: 140px;
+    height: 90px;
+}
+
+.main-header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.main-header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.main-header .user-actions a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-header .logo {
+        margin-bottom: 20px;
+    }
+
+    .main-header .user-actions {
+        margin-top: 20px;
+    }
 }

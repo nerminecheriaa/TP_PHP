@@ -22,19 +22,22 @@ $books = $book->getAllBooks();
     <link rel="stylesheet" href="indexStyle.css">
 </head>
 <body>
-    <header>
-        <span><img src="images/logo.png" alt="Logo" class="logo"></span>
-        <nav>
-            <h1>Welcome to our Bookstore</h1>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Books</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Cart</a></li>
-            </ul>
-        </nav>
-    </header>
+<header class="main-header">
+    <div class="logo">
+        <img src="images/logo.png" alt="Company Logo">
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="contact.php">Contact</a></li>
+            <li><a href="#AboutUs">About Us</a></li>
+            <li><a href="#Books">Books</a></li>
+        </ul>
+    </nav>
+    <div class="user-actions">
+        <a href="cart.php">Cart</a>
+        <a href="login.php">Login</a>
+    </div>
+</header>
     <div class="content">
         <div class="background-image">
             <img src="images/LIBRERY.jpg" alt="Bookstore Image">
@@ -59,5 +62,7 @@ $books = $book->getAllBooks();
     <footer>
         <p>&copy; 2024 Bookstore. All rights reserved.</p>
     </footer>
+
 </body>
+
 </html>
