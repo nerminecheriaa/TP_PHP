@@ -28,8 +28,8 @@ $books = $book->getAllBooks();
     </div>
     <nav class="main-nav">
         <ul>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="#AboutUs">About Us</a></li>
+            <li><a href="../contact/contact.php">Contact</a></li>
+            <li><a href="../index.php">About Us</a></li>
             <li><a href="#Books">Books</a></li>
         </ul>
     </nav>
@@ -50,7 +50,7 @@ $books = $book->getAllBooks();
     
     <main>
         <?php foreach ($books as $book): ?>
-            <form action="">
+            <form action='index.php ' method= 'POST'>
                 <section class="book">
                     <img src="../admin/<?php echo $book['image']; ?>" class="bookimg" alt="<?php echo $book['title']; ?>">
                     <h2><?php echo $book['title']; ?> </h2>
