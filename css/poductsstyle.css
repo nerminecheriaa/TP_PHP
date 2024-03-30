@@ -1,0 +1,180 @@
+/* Global Styles */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Updated font */
+    background-image: linear-gradient(rgba(190,211,195,0.8),rgba(190,211,195,0.8)), url(../admin/Uploadimage/bookBacground.jpg);
+    color: #212E53; /* Dark blue */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #EBACA2; /* Light coral */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the content */
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff; /* White */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.col-md-6 {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Form Styles */
+.form-label {
+    color: #4A919E; /* Blue-green */
+    font-weight: bold;
+}
+
+.input-field, .file-upload-container {
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="file"], button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="file"]:focus {
+    outline: none;
+    border-color: #CE6A6B; /* Reddish pink */
+}
+
+button[type="submit"], .file-custom-button {
+    width: 100%;
+    background-color: #4A919E; /* Blue-green */
+    color: #ffffff; /* White */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover, .file-custom-button:hover {
+    background-color: #212E53; /* Dark blue */
+}
+
+/* Table Styles */
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto; /* Adds a horizontal scroll on smaller screens */
+    padding: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 90%; /* Adjust based on preference */
+    margin: 20px auto; /* Centers the table and adds spacing */
+    background-color: #fff; /* Table background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+}
+
+th, td {
+    text-align: left;
+    padding: 12px; /* Adjust the padding as needed */
+    border-bottom: 1px solid #BED3C3; /* Soft green */
+}
+
+th {
+    background-color: #4A919E;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #EBACA2;
+    cursor: pointer;
+}
+
+/* Image Styles */
+td img {
+    width: 100px; /* Adjust based on your needs */
+    height: auto;
+    border-radius: 5px; /* Optional: Adds rounded corners to images */
+}
+
+
+.deletebtn {
+    background-color: #f44336; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.deletebtn:hover {
+    background-color: #da190b; 
+}
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #CE6A6B;
+    padding: 20px;
+    color: #fff;
+    height: 70px;
+}
+
+.main-header .logo img {
+    width: 140px;
+    height: 90px;
+}
+
+.main-header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.main-header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.main-header .user-actions a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-header .logo {
+        margin-bottom: 20px;
+    }
+
+    .main-header .user-actions {
+        margin-top: 20px;
+    }
+}
+
