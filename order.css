@@ -1,0 +1,129 @@
+.container {
+    padding: 40px;
+    background-color: aliceblue;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: auto;
+}
+
+#subcontainer {
+    padding: 2%;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 360px;
+    background-color: #4A919E;
+    border-radius: 2%;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #212E53;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #212E53;
+}
+
+#resultinsertion {
+    font-size: 30px;
+    color: black;
+    padding-left: 40%;
+    background-color: aliceblue;
+    margin-top: 2%;
+}
+
+body {
+    background-image: url(src/background.jpg);
+    color: #212E53;
+    height: 100%;
+    font-size: large;
+    margin: 0;
+}
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4A919E;
+    padding: 20px;
+    color: #fff;
+    height: 70px;
+}
+
+.main-header .logo img {
+    width: 140px;
+    height: 90px;
+}
+
+.main-header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.main-header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.main-header .user-actions a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 20px;
+}
+header{
+    margin: auto;
+}
+a{
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+@media screen and (max-width: 600px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-header .logo {
+        margin-bottom: 20px;
+    }
+
+    .main-header .user-actions {
+        margin-top: 20px;
+    }
+}

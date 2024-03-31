@@ -13,6 +13,9 @@
                 background-color:#FFDFDB;   
 
         }
+        .text-middle{
+            padding-left: 40%;
+        }
         .container {
            
             background-color:whitesmoke;
@@ -69,30 +72,39 @@
                         </tr>
                     </thead>
                     <tbody class="text-center">
-
-<?php
-if (isset($_SESSION['cart'])) {
+                    <form method='POST' action='order.php'> <!-- Use a single form for both actions -->
+                    
+                    
+    <?php
+    if (isset($_SESSION['cart'])) {
         foreach ($_SESSION['cart'] as $key => $value) {
-            // Ensure $value is an array (associative array representing an item)
             if (is_array($value)) {
-                $index=array_search($value,$_SESSION['cart']);
+                $index = array_search($value, $_SESSION['cart']);
                 echo "
                 <tr>
                     <td>{$value['isbn']}</td>
                     <td>{$value['title']}</td>
                     <td>{$value['price']}</td>
                     <td>{$value['quantity']}</td>
-                    <td><form action='cart.php' method='POST'>
-                    <button name='remove' class='button'>REMOVE</button>
-                    <input type='hidden' name='index' value={$index}></form></td> 
-                </tr>";
+                    <td>
+                        <button type='submit' name='remove' class='button'>REMOVE</button> <!-- Move the button inside the form -->
+                        <input type='hidden' name='index' value={$index}>
+                        
+
+                        <input type='hidden' name='isbn[]' value='{$value['isbn']}'> <!-- Hidden input for isbn -->
+                        <input type='hidden' name='quantity[]' value='{$value['quantity']}'> <!-- Hidden input for quantity -->
+                    </td> 
+                </tr>
+                ";
             }
         }
     }
+    ?>
 
+ <!-- Specify action as order.php -->
+    <button type="submit" class="total-btn">Order Now</button>
+</form>
 
-
-?>
 
 <?php     
 
