@@ -48,38 +48,39 @@ class Order
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../order.css">
-</head>
-<body>
-<header class="main-header">
-    <div class="logo">
-        <img src="../src/logo.png" alt="Company Logo">
-    </div>
-    <nav class="main-nav">
-        <ul>
-            <li><a href="../contact/contact.php">Contact</a></li>
-            <li><a href="../main feed/index.php">About Us</a></li>
-            <li><a href="../index.php#Books">Books</a></li>
-        </ul>
-    </nav>
-    <div class="user-actions">
-        <a href="../cart.php">Cart</a>
-        <a href="../login.php">Login</a>
-    </div>
-</header>
 
 <?php 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dbh = new Dbh();
     $pdo = $dbh->getPdo();
     $order = new Order($pdo);
-
+echo"
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <link rel='stylesheet' href='../order.css'>
+</head>
+<body>
+<header class='main-header'>
+    <div class='logo'>
+        <img src='../src/logo.png' alt='Company Logo'>
+    </div>
+    <nav class='main-nav'>
+        <ul>
+            <li><a href='../contact/contact.php'>Contact</a></li>
+            <li><a href='../main feed/index.php'>About Us</a></li>
+            <li><a href='../index.php#Books'>Books</a></li>
+        </ul>
+    </nav>
+    <div class='user-actions'>
+        <a href='../cart.php'>Cart</a>
+        <a href='../login.php'>Login</a>
+    </div>
+</header>";
     
     $isbn = $_POST['isbn'] ?? [];
     $quantity = $_POST['quantity'] ?? [];
@@ -92,8 +93,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "<div id='resultinsertion'>Error: Failed to insert order.</div>";
     }
+
+    echo"
+    </body>
+    </html>";
 }
 ?>
-
-</body>
-</html>
