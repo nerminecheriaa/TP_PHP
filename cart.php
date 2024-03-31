@@ -15,7 +15,7 @@
 <body class="page">
 <header class="main-header">
     <div class="logo">
-        <img src="/main feed/images/logo.png" alt="Company Logo">
+        <img src="main feed/images/logo.png" alt="Company Logo">
     </div>
     <nav class="main-nav">
         <ul>
