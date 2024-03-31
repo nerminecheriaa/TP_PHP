@@ -14,13 +14,13 @@
     <nav class="main-nav">
         <ul>
             <li><a href="contact.php">Contact</a></li>
-            <li><a href="#AboutUs">About Us</a></li>
-            <li><a href="#Books">Books</a></li>
+            <li><a href="../aboutus.php">About Us</a></li>
+            <li><a href="../main feed/index.php">Books</a></li>
         </ul>
     </nav>
     <div class="user-actions">
-        <a href="cart.php">Cart</a>
-        <a href="login.php">Login</a>
+        <a href="../cart.php">Cart</a>
+        <a href="../login.php">Login</a>
     </div>
 </header>
     <div class="container smaller-container">

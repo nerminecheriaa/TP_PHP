@@ -34,13 +34,13 @@ $books = $book->getAllBooks();
     <nav class="main-nav">
         <ul>
             <li><a href="../contact/contact.php">Contact</a></li>
-            <li><a href="../index.php">About Us</a></li>
-            <li><a href="#Books">Books</a></li>
+            <li><a href="../aboutus.php">About Us</a></li>
+            <li><a href="index.php">Books</a></li>
         </ul>
     </nav>
     <div class="user-actions">
         <a href="../cart.php">Cart</a>
-        <a href="login.php">Login</a>
+        <a href="../login.php">Login</a>
     </div>
 </header>
     <div class="content">

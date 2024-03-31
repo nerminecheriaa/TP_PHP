@@ -48,9 +48,76 @@
         .text-center h1 {
             color:#CE6A6B ;
         }
+        .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #CE6A6B;
+    padding: 20px;
+    color: #fff;
+    height: 70px;
+}
+
+.main-header .logo img {
+    width: 140px;
+    height: 90px;
+}
+
+.main-header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.main-header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.main-header .user-actions a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-header .logo {
+        margin-bottom: 20px;
+    }
+
+    .main-header .user-actions {
+        margin-top: 20px;
+    }
+}
     </style>
 </head>
 <body class="page">
+<header class="main-header">
+    <div class="logo">
+        <img src="/main feed/images/logo.png" alt="Company Logo">
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="contact/contact.php">Contact</a></li>
+            <li><a href="aboutus.php">About Us</a></li>
+            <li><a href="main feed/index.php">Books</a></li>
+        </ul>
+    </nav>
+    <div class="user-actions">
+        <a href="cart.php">Cart</a>
+        <a href="login.php">Login</a>
+    </div>
+</header>
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center border rounded bg-light my-5">
