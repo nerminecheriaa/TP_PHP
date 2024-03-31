@@ -128,7 +128,7 @@
                 <table class="table table-hover">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">ID</th>
+                            <th scope="col">ISBN</th>
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
@@ -151,7 +151,7 @@ if (isset($_SESSION['cart'])) {
                     <td>{$value['quantity']}</td>
                     <td><form action='cart.php' method='POST'>
                     <button name='remove' class='button'>REMOVE</button>
-                    <input type='hidden' name='index' value={$index}></form></td> 
+                    <input type='hidden' name='isbnToRemove' value='{$value['isbn']}'></form></td>     
                 </tr>";
             }
         }
@@ -163,18 +163,25 @@ if (isset($_SESSION['cart'])) {
 
 <?php     
 
-if (isset($_POST['remove'])){
+if (isset($_POST['remove'])) {
+    $isbnToRemove = $_POST['isbnToRemove'];
 
-        $index=$_POST['index'];
-        unset($_SESSION['cart'][$index]);
-        $_SESSION['cart']=array_values($_SESSION['cart']);
- 
+    foreach ($_SESSION['cart'] as $key => $item) {
+        if ($item['isbn'] == $isbnToRemove) {
+            if ($_SESSION['cart'][$key]['quantity'] > 1) {
+                $_SESSION['cart'][$key]['quantity'] -= 1;
+            } else {
+                unset($_SESSION['cart'][$key]);
+            }
+            // Reindex 
+            $_SESSION['cart'] = array_values($_SESSION['cart']);
+            break; // Stop the loop after finding and handling the item
+        }
+    }
+    // Refresh page to show updated cart
+    echo "<script>window.location.href='cart.php';</script>";
+}
 
-    echo " <script> alert('item removed');
-            window.location.href='cart.php';</script>";
-
-
-} 
 
 
 ?>
