@@ -47,7 +47,7 @@ class Order
 <body>
 <header class="main-header">
     <div class="logo">
-        <img src="../src/logoblack-removebg.png" alt="Company Logo">
+        <img src="../src/logo.png" alt="Company Logo">
     </div>
     <nav class="main-nav">
         <ul>

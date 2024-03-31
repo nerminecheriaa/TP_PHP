@@ -1,4 +1,3 @@
-
 <?php  session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,41 +46,71 @@
                         </tr>
                     </thead>
                     <tbody class="text-center">
-                    <form method='POST' action='order.php'> <!-- Use a single form for both actions -->
-                    
-                    
-    <?php
-    if (isset($_SESSION['cart'])) {
-        foreach ($_SESSION['cart'] as $key => $value) {
-            if (is_array($value)) {
-                $index = array_search($value, $_SESSION['cart']);
-                echo "
-                <tr>
-                    <td>{$value['isbn']}</td>
-                    <td>{$value['title']}</td>
-                    <td>{$value['price']}</td>
-                    <td>{$value['quantity']}</td>
-                    <td>
-                        <button type='submit' name='remove' class='button'>REMOVE</button> <!-- Move the button inside the form -->
-                        <input type='hidden' name='index' value={$index}>
-                        
+                    <?php
+                    if (isset($_SESSION['cart'])) {
+                        foreach ($_SESSION['cart'] as $key => $value) {
+                            if (is_array($value)) {
+                                $index = array_search($value, $_SESSION['cart']);
+                                echo "
+                                <tr>
+                                    <td>{$value['isbn']}</td>
+                                    <td>{$value['title']}</td>
+                                    <td>{$value['price']}</td>
+                                    <td>{$value['quantity']}</td>
+                                    <td>
+                                        <form method='POST' action='cart.php'> <!-- Form for removing item -->
+                                            <button type='submit' name='remove' class='button'>REMOVE</button>
+                                            <input type='hidden' name='isbnToRemove' value='{$value['isbn']}'>
+                                        </form>
+                                    </td> 
+                                </tr>";
+                            }
+                        }
+                    }
+                    ?>
+                    </tbody>
+                </table>
 
-                        <input type='hidden' name='isbn[]' value='{$value['isbn']}'> <!-- Hidden input for isbn -->
-                        <input type='hidden' name='quantity[]' value='{$value['quantity']}'> <!-- Hidden input for quantity -->
-                    </td> 
-                </tr>
-                ";
-            }
-        }
-    }
-    ?>
+                <!-- Form for placing order -->
+                <form method='POST' action='order.php'>
+                    <?php
+                    // Add hidden input fields for ISBNs and quantities
+                    if (isset($_SESSION['cart'])) {
+                        foreach ($_SESSION['cart'] as $key => $value) {
+                            if (is_array($value)) {
+                                echo "
+                                <input type='hidden' name='isbn[]' value='{$value['isbn']}'> <!-- Hidden input for isbn -->
+                                <input type='hidden' name='quantity[]' value='{$value['quantity']}'> <!-- Hidden input for quantity -->
+                                ";
+                            }
+                        }
+                    }
+                    ?>
+                    <button type="submit" class="total-btn">Order Now</button>
+                </form>
 
- <!-- Specify action as order.php -->
-    <button type="submit" class="total-btn">Order Now</button>
-</form>
+                <form method="POST" class="text-right">
+                    <button name="total" type="submit" class="total-btn">Calculate Total</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
+<?php 
+if (isset($_POST['total'])) {
+    require_once 'database/dbh.php';
+    require_once 'classes/ShoppingCart.php'; 
 
-<?php     
+    $pdo = (new Dbh())->getPdo();
+    $cart = new ShoppingCart($pdo);
+    $totalPrice = $cart->totalprice();
+    
+    // Display the total price
+    echo " <div class='text-center my-4'>
+    <strong class='d-block'>Total Price:</strong>
+    <span class='display-4'>{$totalPrice} DT</span>
+   </div>";
+}
 
 if (isset($_POST['remove'])) {
     $isbnToRemove = $_POST['isbnToRemove'];
@@ -101,39 +130,9 @@ if (isset($_POST['remove'])) {
     // Refresh page to show updated cart
     echo "<script>window.location.href='cart.php';</script>";
 }
-
-
-
 ?>
-        
- 
-        </tbody>
-                </table>
-                <form method="POST" class="text-right">
-                       <button name="total" type="submit" class="total-btn">Calculate Total</button>
-                </form>
-            </div>
-        </div>
-    </div>
-<?php 
-if (isset($_POST['total'])) {
-    require_once 'database/dbh.php';
-    require_once 'classes/ShoppingCart.php'; 
 
-    $pdo = (new Dbh())->getPdo();
-    $cart = new ShoppingCart($pdo);
-    $totalPrice = $cart->totalprice();
-    
-    // Display the total price
-    echo " <div class='text-center my-4'>
-    <strong class='d-block'>Total Price:</strong>
-    <span class='display-4'>{$totalPrice} DT</span>
-   </div>";
-}
-?>
  <!-- Bootstrap JS, Popper.js, and jQuery -->
  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>   
+    <script src="https://stackpath.bootstrapcdn.
