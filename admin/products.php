@@ -29,8 +29,8 @@ $books = $book->getAllBooks();
     </div>
     <nav class="main-nav">
         <ul>
-            <li><a href="indexadmin.php">Manage Books</a></li>
-            <li><a href="products.php">Manage Data base</a></li>
+            <li><a href="manageorders.php">Manage Orders</a></li>
+            <li><a href="products.php">Manage Books</a></li>
         </ul>
     </nav>
     <div class="admin-actions">

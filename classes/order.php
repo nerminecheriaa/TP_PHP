@@ -33,6 +33,18 @@ class Order
             return false;
         }
     }
+    // Function to get all orders
+    public function getAllOrders() {
+        $sql = "SELECT * FROM commande";
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    //Function to deete an order based on the id and isbn
+    public function deleteOrder($isbn, $telephone) {
+        $sql = "DELETE FROM commande WHERE isbn = :isbn AND telephone = :telephone";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([':isbn' => $isbn, ':telephone' => $telephone]);
+    }
 }
 ?>
 
