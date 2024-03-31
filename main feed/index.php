@@ -1,11 +1,16 @@
 <?php
 require_once '../database/dbh.php'; // Include the Dbh class file
 require_once '../classes/Book.php'; // Include the Book class file
+require_once '../classes/shoppingcart.php';
 
 // Create a new Dbh object
 $dbh = new Dbh();
 // Get the PDO instance from Dbh object
 $pdo = $dbh->getPdo();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+    $cart= new ShoppingCart($pdo);
+}
 
 // Create a new Book object
 $book = new Book($pdo);
@@ -34,7 +39,7 @@ $books = $book->getAllBooks();
         </ul>
     </nav>
     <div class="user-actions">
-        <a href="cart.php">Cart</a>
+        <a href="../cart.php">Cart</a>
         <a href="login.php">Login</a>
     </div>
 </header>
@@ -65,13 +70,40 @@ $books = $book->getAllBooks();
                     <p><?php echo $book['price']; ?> DT</p>
                     <button name="add" type="submit"  class="button">Add To Cart</button>
                 </section>
-                <input type="hidden" name ="name" value="<?php echo $book['title']; ?>">
+                <input type="hidden" name ="name" value= "<?php echo $book['title']; ?>" >
             </form>
         <?php endforeach; ?>
     </main>
     <footer>
         <p>&copy; 2024 Bookstore. All rights reserved.</p>
     </footer>
+
+    <?php 
+   
+    
+       if ($_SERVER["REQUEST_METHOD"]=="POST"){
+            if(isset($_POST["add"])){
+                    if(isset($_SESSION['cart'])){
+                        $productname = $_POST['name']; 
+                        $quantity = 1; 
+                        $cart->addToCart($productname, $quantity);
+                         $cartItems = $cart->getCart();
+                     echo "<script>alert('item successfully added');
+                            window.location.href='index.php';</script>";
+                     
+    
+                       
+                    }
+            }
+
+            
+       }
+    ?>
+    
+    
+    
+    
+    
 
    <script> function setRating(rating,i){
         
