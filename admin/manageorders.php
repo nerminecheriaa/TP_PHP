@@ -49,7 +49,7 @@ try {
     </nav>
     <div class="admin-actions">
         <a href="../main feed/index.php">View User Dashboard</a>
-        <a href="logout.php">Logout</a>
+        <a href="../LOGOUT.php">Logout</a>
     </div>
 </header>
 <main>

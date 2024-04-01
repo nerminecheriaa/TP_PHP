@@ -72,8 +72,7 @@ echo"
     <nav class='main-nav'>
         <ul>
             <li><a href='../contact/contact.php'>Contact</a></li>
-            <li><a href='../main feed/index.php'>About Us</a></li>
-            <li><a href='../index.php#Books'>Books</a></li>
+            <li><a href='../main feed/index.php'>Books</a></li>
         </ul>
     </nav>
     <div class='user-actions'>

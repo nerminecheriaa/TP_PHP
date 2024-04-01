@@ -48,15 +48,16 @@ function auth($telephone, $password){
          $db_email = $user["email"];
          $db_telephone = $user["telephone"];
          if($db_telephone == $telephone ){
-          //  if (password_verify($password, $db_password)) {
+           if ($password== $db_password) {
                $this->nom =  $db_nom;
                $this->telephone =  $db_telephone;
                $this->email =  $db_email;
                return 1;
-           // }else return 0;
+            }else return 0;
          }else return 0;
        }else return 0;
-    }catch(PDOException $e){
+    }
+    catch(PDOException $e){
         return 0;
     }
 }
