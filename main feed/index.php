@@ -16,6 +16,7 @@ if (session_status() == PHP_SESSION_NONE) {
 $book = new Book($pdo);
 // Get all books from the database
 $books = $book->getAllBooks();
+
 ?>
 
 <!DOCTYPE html>
@@ -27,22 +28,48 @@ $books = $book->getAllBooks();
     <link rel="stylesheet" href="indexStyle.css">
 </head>
 <body>
-<header class="main-header">
-    <div class="logo">
-        <img src="images/logo.png" alt="Company Logo">
+    <?php
+    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
+        echo"<header class='main-header'>
+        <div class='logo'>
+            <img src='images/logo.png' alt='Company Logo'>
+        </div>
+        <nav class='main-nav'>
+            <ul>
+                <li><a href='../contact/contact.php'>Contact</a></li>
+                <li><a href='../aboutus.php'>About Us</a></li>
+                <li><a href='index.php'>Books</a></li>
+            </ul>
+        </nav>
+        <div class='user-actions'>
+            <a href='../cart.php'>Cart</a>
+            <a href='../login.php'>Login</a>
+        </div>
+    </header>";
+    }
+    
+else{
+    echo"<header class='main-header'>
+    <div class='logo'>
+        <img src='images/logo.png' alt='Company Logo'>
     </div>
-    <nav class="main-nav">
+    <nav class='main-nav'>
         <ul>
-            <li><a href="../contact/contact.php">Contact</a></li>
-            <li><a href="../aboutus.php">About Us</a></li>
-            <li><a href="index.php">Books</a></li>
+            <li><a href='../contact/contact.php'>Contact</a></li>
+            <li><a href='../aboutus.php'>About Us</a></li>
+            <li><a href='index.php'>Books</a></li>
         </ul>
     </nav>
-    <div class="user-actions">
-        <a href="../cart.php">Cart</a>
-        <a href="../login.php">Login</a>
+    <div class='user-actions'>
+        <a href='../cart.php'>Cart</a>
+        <a href='../LOGOUT.php'>Logout</a>
     </div>
-</header>
+</header>";
+}
+
+
+?>
+
     <div class="content">
         <div class="background-image">
             <img src="images/LIBRERY.jpg" alt="Bookstore Image">

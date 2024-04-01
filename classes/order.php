@@ -1,6 +1,6 @@
 <?php
 require_once '../database/dbh.php';
-
+  session_start(); 
 class Order
 {
     private $pdo;
@@ -64,22 +64,46 @@ echo"
     <title>Document</title>
     <link rel='stylesheet' href='../order.css'>
 </head>
-<body>
-<header class='main-header'>
+<body>";
+    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
+        echo"<header class='main-header'>
+        <div class='logo'>
+            <img src='images/logo.png' alt='Company Logo'>
+        </div>
+        <nav class='main-nav'>
+            <ul>
+                <li><a href='../contact/contact.php'>Contact</a></li>
+                <li><a href='../aboutus.php'>About Us</a></li>
+                <li><a href='index.php'>Books</a></li>
+            </ul>
+        </nav>
+        <div class='user-actions'>
+            <a href='../cart.php'>Cart</a>
+            <a href='../login.php'>Login</a>
+        </div>
+    </header>";
+    }
+    
+else{
+    echo"<header class='main-header'>
     <div class='logo'>
-        <img src='../src/logo.png' alt='Company Logo'>
+        <img src='images/logo.png' alt='Company Logo'>
     </div>
     <nav class='main-nav'>
         <ul>
             <li><a href='../contact/contact.php'>Contact</a></li>
-            <li><a href='../main feed/index.php'>Books</a></li>
+            <li><a href='../aboutus.php'>About Us</a></li>
+            <li><a href='index.php'>Books</a></li>
         </ul>
     </nav>
     <div class='user-actions'>
         <a href='../cart.php'>Cart</a>
-        <a href='../login.php'>Login</a>
+        <a href='../LOGOUT.php'>Logout</a>
     </div>
 </header>";
+}
+
+
     
     $isbn = $_POST['isbn'] ?? [];
     $quantity = $_POST['quantity'] ?? [];
