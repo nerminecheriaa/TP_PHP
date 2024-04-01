@@ -1,6 +1,6 @@
 body {
 
-    background-color: #BED3C3;
+    background-image: linear-gradient(rgba(235,172,162,0.8),rgba(235,172,162,0.8)), url(admin/Uploadimage/bookBacground.jpg);
     height: 100%;
     }
     

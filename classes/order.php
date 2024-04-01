@@ -52,6 +52,9 @@ class Order
 <?php 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
+        header("../login.php");
+    }
     $dbh = new Dbh();
     $pdo = $dbh->getPdo();
     $order = new Order($pdo);
@@ -66,34 +69,19 @@ echo"
 </head>
 <body>";
     if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
-        echo"<header class='main-header'>
-        <div class='logo'>
-            <img src='images/logo.png' alt='Company Logo'>
-        </div>
-        <nav class='main-nav'>
-            <ul>
-                <li><a href='../contact/contact.php'>Contact</a></li>
-                <li><a href='../aboutus.php'>About Us</a></li>
-                <li><a href='index.php'>Books</a></li>
-            </ul>
-        </nav>
-        <div class='user-actions'>
-            <a href='../cart.php'>Cart</a>
-            <a href='../login.php'>Login</a>
-        </div>
-    </header>";
+        header("../login.php");
     }
     
 else{
     echo"<header class='main-header'>
     <div class='logo'>
-        <img src='images/logo.png' alt='Company Logo'>
+        <img src='../src/logo.png' alt='Company Logo'>
     </div>
     <nav class='main-nav'>
         <ul>
             <li><a href='../contact/contact.php'>Contact</a></li>
             <li><a href='../aboutus.php'>About Us</a></li>
-            <li><a href='index.php'>Books</a></li>
+            <li><a href='../main feed/index.php'>Books</a></li>
         </ul>
     </nav>
     <div class='user-actions'>
