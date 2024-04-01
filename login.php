@@ -1,3 +1,11 @@
+<?php
+include "classes/Validation.php";
+$phone="";
+if (isset($_GET["phone"])) {
+	$phone = $_GET["phone"];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,24 +26,25 @@
 
         <img src="src/logo.png" alt="Company Logo" class="logo-img">
         <div class="signup-heading">Sign in</div>
+        <?php
+            if(isset($_GET['error'])) { ?>
+                <p class="error"><?=Validation::clean($_GET['error'])?> </p>
         
-            <form method="POST"  >
+        <?php } ?>
 
-   
+    <form method="POST" action="loginControl.php" >
+
         <div class="mb-3">
-
-            
-            <label for="exampleInputemail" class="form-label">Email address</label>
-            <input type="email" class="form-control" name="email" id="exampleInputEmail address" placeholder="Email">
+            <label class="form-label">Phone</label>
+            <input type="text" class="form-control" name="phone" id="exampleInputphone" placeholder="phone" value="<?=$phone?>">
         </div>
 
         <div class="mb-3">
-            <label for="exampleInputPassword" class="form-label">Password</label>
+            <label class="form-label">Password</label>
             <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
 
-            <input type="submit" id='submit' value='LOGIN' name='ajouter' >
-
         </div>
+        <input type="submit" id='submit' value='LOGIN' name='ajouter' >
         <div class="signup-link">Not a member? <a href="signup.php"> Sign up now</a>
         </div>
 

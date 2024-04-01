@@ -99,6 +99,24 @@ body {
         color: #CE6A6B;
         text-decoration: underline;
       }
+
+    .error {
+        background: #EBACA2;
+        padding: 10px;
+        width: 90%;
+        margin: 2px auto;
+        color: red;
+        border-radius: 5px;
+    }
+   
+    .success {
+        background: #B7FFB7;
+        padding: 10px;
+        width: 90%;
+        margin: 2px auto;
+        color: green;
+        border-radius: 5px;
+    }
     
     
  

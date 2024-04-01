@@ -1,3 +1,17 @@
+<?php
+include "classes/Validation.php";
+$name = $phone= $email ="";
+if (isset($_GET["name"])) {
+	$name = $_GET["name"];
+}
+if (isset($_GET["email"])) {
+	$email = $_GET["email"];
+}
+if (isset($_GET["phone"])) {
+	$phone = $_GET["phone"];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,31 +30,42 @@
 
         <img src="src/logo.png" alt="Company Logo" class="logo-img">
         <div class="signup-heading">Sign Up</div>
-            <form method="POST"  action ="login.php">
 
-   
-            <div class="mb-3">
+        <?php
+            if(isset($_GET['error'])) { ?>
+                <p class="error"><?=Validation::clean($_GET['error'])?> </p>
+        
+        <?php } ?>
+        <?php 
+                if (isset($_GET['success'])) { ?>
+                	<p class="success"><?=Validation::clean($_GET['success'])?></p>
+        <?php } ?>
 
-            
-        <label for="exampleInputemail" class="form-label">Name</label>
-        <input type="text" class="form-control" name="Name" id="exampleInputname" placeholder="Name">
+         <form   action ="signupControl.php" method="POST">
+
+        <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" id="exampleInputname" placeholder="Name" value="<?=$name?>">
+        </div>
+
+        <div class="mb-3">  
+            <label class="form-label">Phone</label>
+            <input type="text" class="form-control" name="phone" id="exampleInputphone" placeholder="phone" value="<?=$phone?>">
+        </div>
+
+        <div class="mb-3">  
+            <label  class="form-label">Email address</label>
+            <input type="text" class="form-control" name="email" id="exampleInputEmail address" placeholder="Email" value="<?=$email?>">
         </div>
 
         <div class="mb-3">
-
-            
-            <label for="exampleInputemail" class="form-label">Email address</label>
-            <input type="email" class="form-control" name="email address" id="exampleInputEmail address" placeholder="Email">
-        </div>
-
-        <div class="mb-3">
-            <label for="exampleInputPassword" class="form-label">Password</label>
+            <label  class="form-label">Password</label>
             <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
         </div>
         
         <div class="mb-3">
-            <label for="exampleInputPassword" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" name="Confirm Password" id="exampleInputPassword1" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+            <label  class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" name="re_password" id="exampleInputPassword1" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
         </div>
         
         <input type="submit" id='submit' value='Sign Up' >

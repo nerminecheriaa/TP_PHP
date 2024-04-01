@@ -81,5 +81,20 @@ body {
         margin-bottom: 10px;
         color: #CE6A6B;
     }
-
+    .error {
+        background: #EBACA2;
+        padding: 10px;
+        width: 90%;
+        margin: 2px auto;
+        color: red;
+        border-radius: 5px;
+    }
    
+    .success {
+        background: #B7FFB7;
+        padding: 10px;
+        width: 90%;
+        margin: 2px auto;
+        color: green;
+        border-radius: 5px;
+    }
