@@ -21,7 +21,7 @@ if(isset($_SESSION['nom'])&& isset($_SESSION['telephone']))
         <div id="sign-up-container">
    <h2>Welcome <?=$_SESSION['nom']?></h2>
 
-   <form method="Get" action="index.php" >
+   <form method="GET" action="main feed/index.php" >
         
    <input type="submit" id='submit' value='MAINFEED'>
 

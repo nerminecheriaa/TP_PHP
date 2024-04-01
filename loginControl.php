@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             // Vérifier si c'est l'administrateur
             if ($telephone == '00000000') {
                 $em="logged as admin";
-                Util::redirect("admin.php", "success", $em);
+                Util::redirect("admin/products.php", "success", $em);
             } else{
             $sm = "logged in!";
             Util::redirect("index2.php", "success", $sm);}
