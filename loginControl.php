@@ -34,8 +34,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $user_data = $user->getUser();
             $_SESSION['nom'] = $user_data['nom'];
             $_SESSION['telephone'] = $user_data['telephone'];
+<<<<<<< Updated upstream
             $sm = "logged in!";
             Util::redirect("index2.php", "success", $sm);
+=======
+            // Vérifier si c'est l'administrateur
+            if ($telephone == '00000000') {
+                $em="logged as admin";
+                Util::redirect("admin/products.php", "success", $em);
+            } else{
+                $_SESSION['loggedin'] = true;
+                header("Location: main feed/index.php");
+                exit;}
+>>>>>>> Stashed changes
         }
         else{
             $em="Incorrect phone number or password";
