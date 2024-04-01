@@ -53,27 +53,26 @@ class Order
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
-        header("../login.php");
+        header("Location: ../login.php");
+
     }
+    else{
     $dbh = new Dbh();
     $pdo = $dbh->getPdo();
     $order = new Order($pdo);
-echo"
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Document</title>
-    <link rel='stylesheet' href='../order.css'>
-</head>
-<body>";
-    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
-        header("../login.php");
-    }
-    
-else{
-    echo"<header class='main-header'>
+
+    if(isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == true){
+        
+    echo"<!DOCTYPE html>
+    <html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Document</title>
+        <link rel='stylesheet' href='../order.css'>
+    </head>
+    <body>
+    <header class='main-header'>
     <div class='logo'>
         <img src='../src/logo.png' alt='Company Logo'>
     </div>
@@ -108,5 +107,6 @@ else{
     echo"
     </body>
     </html>";
+}
 }
 ?>
