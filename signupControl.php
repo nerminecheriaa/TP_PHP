@@ -39,12 +39,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $user = new User($conn);
         if($user->phone_unique($telephone)){
                 // password hash
-            //$password = password_hash($password, PASSWORD_DEFAULT);
+            $password = password_hash($password, PASSWORD_DEFAULT);
             $user_data = [$telephone,$email,$password,$nom];
             $res = $user->insert($user_data);
             if ($res) {
                 $sm = "Successfully registered!";
-             Util::redirect("signup.php", "success", $sm, $data);
+             Util::redirect("login.php", "success", $sm, $data);
             }else {
                 $em = "An error occurred";
              Util::redirect("signup.php", "error", $em, $data);

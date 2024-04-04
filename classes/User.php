@@ -38,27 +38,39 @@ class User{
 
 function auth($telephone, $password){
     try {
-       $sql = 'SELECT * FROM ' .$this->table_name.' WHERE telephone=?';
-       $stmt = $this->conn->prepare($sql);
-       $res = $stmt->execute([$telephone]);
-       if($stmt->rowCount() == 1) {
-         $user = $stmt->fetch();
-         $db_nom = $user["nom"];
-         $db_password = $user["password"];
-         $db_email = $user["email"];
-         $db_telephone = $user["telephone"];
-         if($db_telephone == $telephone ){
-           if ($password== $db_password) {
-               $this->nom =  $db_nom;
-               $this->telephone =  $db_telephone;
-               $this->email =  $db_email;
-               return 1;
-            }else return 0;
-         }else return 0;
-       }else return 0;
-    }
-    catch(PDOException $e){
-        return 0;
+        $sql = 'SELECT * FROM ' .$this->table_name.' WHERE telephone=?';
+        $stmt = $this->conn->prepare($sql);
+        $res = $stmt->execute([$telephone]);
+        
+        if($stmt->rowCount() == 1) {
+            $user = $stmt->fetch();
+            $db_nom = $user["nom"];
+            $db_password = $user["password"];
+            $db_email = $user["email"];
+            $db_telephone = $user["telephone"];
+            
+            if($db_telephone == $telephone ) {
+                
+                if (password_verify($password, $db_password)) {
+                    $this->nom =  $db_nom;
+                    $this->telephone =  $db_telephone;
+                    $this->email =  $db_email;
+                    return 1; // Authentication successful
+                } else {
+                    echo "Password verification failed."; // Debugging statement
+                    return 0; // Incorrect password
+                }
+            } else {
+                echo "Telephone number mismatch."; // Debugging statement
+                return 0; // Telephone number doesn't match
+            }
+        } else {
+            echo "No user found for the given telephone number."; // Debugging statement
+            return 0; // No user found
+        }
+    } catch(PDOException $e) {
+        echo "Error: " . $e->getMessage(); // Debugging statement
+        return 0; // Error occurred
     }
 }
 

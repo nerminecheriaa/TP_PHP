@@ -85,14 +85,14 @@ INSERT INTO `commande` (`isbn`, `ville`, `telephone`, `quantity`) VALUES
 CREATE TABLE `utilisateur` (
   `telephone` varchar(8) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `nom` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `utilisateur`
 --
-
+dont do this , insert data via signup form
 INSERT INTO `utilisateur` (`telephone`, `email`, `password`, `nom`) VALUES
 ('56678018', 'ARIJ@GMAIL.COM', 'aaa', 'arij'),
 ('56678023', 'mhenni.arij@gmail.com', 'arij123ARIJ*', 'elhem');

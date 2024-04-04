@@ -7,7 +7,7 @@ include "classes/User.php";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $telephone = Validation::clean($_POST["phone"]);
-    $password = Validation::clean($_POST["password"]);
+    $password = Validation::clean( $_POST["password"]);
         
  
     if (!Validation::phone($telephone)) {
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	    Util::redirect("login.php", "error", $em);
     }
 
-    else if (($telephone == '00000000')&& ($password == "Admin1*")) {
+    else if (($telephone == '00000000')&& ($password== 'Admin1*')) {
         $em="logged as admin";
         Util::redirect("admin/products.php", "success", $em);
     } 
@@ -30,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $conn= $db->getPdo();
         $user = new User($conn);
         $auth = $user->auth($telephone, $password);
-        
         if($auth) {
             $user_data = $user->getUser();
             $_SESSION['nom'] = $user_data['nom'];
@@ -45,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $em="Incorrect phone number or password";
             Util::redirect("login.php", "error", $em);
         }
+       
         
      }
 

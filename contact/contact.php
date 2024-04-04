@@ -24,7 +24,7 @@
     </div>
 </header>
     <div class="container smaller-container">
-        <form method="POST" action="process_form.php">
+        <form  action="process_form.php"  method="POST" >
             <div class="logo-container">
                 <img src="images/logo.png" alt="Logo">
             </div>
